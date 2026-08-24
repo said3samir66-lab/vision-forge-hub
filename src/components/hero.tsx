@@ -3,9 +3,9 @@ import portraitTiny from "@/assets/portrait-dev-420.webp";
 import portraitSm from "@/assets/portrait-dev-640.webp";
 import portraitMd from "@/assets/portrait-dev-720.webp";
 import portrait from "@/assets/portrait-dev.webp";
-import { AnimatedChars, Magnetic } from "@/components/motion-text";
+import { AnimatedChars, CountUp, Magnetic } from "@/components/motion-text";
 import { Parallax } from "@/components/reveal";
-import { tools } from "@/data/projects";
+import { stats, tools } from "@/data/projects";
 
 const uniqueTools = Array.from(new Set(tools));
 
@@ -52,21 +52,115 @@ export function Hero() {
             hero image paints on the very first frame instead of waiting for
             hydration behind an opacity-0 motion variant. */}
         <div className="hero-rise relative mt-8 transform-gpu sm:mt-10">
-          <div className="slide-card relative overflow-hidden rounded-[2rem] p-3 sm:rounded-[2.5rem] sm:p-4">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-brand-sky/40 sm:rounded-[2rem]">
-              <Parallax strength={-18} className="absolute inset-[-6%]">
-                <img
-                  src={portrait}
-                  srcSet={`${portraitTiny} 420w, ${portraitSm} 640w, ${portraitMd} 720w, ${portrait} 1024w`}
-                  sizes="(max-width: 640px) 96vw, 1152px"
-                  alt="Illustrated portrait of Mostafa Samir, a healthcare full-stack engineer"
-                  width={1024}
-                  height={1024}
-                  decoding="async"
-                  fetchPriority="high"
-                  className="float-slow hero-media size-full transform-gpu object-cover object-top"
-                />
-              </Parallax>
+          <div className="slide-card relative overflow-hidden rounded-[2rem] bg-foreground p-6 sm:rounded-[2.5rem] sm:p-10 lg:p-14">
+            {/* Soft drifting colour blobs behind the content */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+              <span className="float-slow absolute -top-24 -left-16 size-72 rounded-full bg-brand-orange/25 blur-3xl" />
+              <span className="float-slow absolute -right-10 bottom-[-6rem] size-80 rounded-full bg-brand-sky/25 blur-3xl [animation-delay:-4s]" />
+            </div>
+
+            <div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+              <div>
+                <motion.span
+                  className="inline-flex items-center gap-2 rounded-full bg-background/10 px-3 py-1.5 text-[0.62rem] font-semibold tracking-[0.18em] text-background/80 uppercase backdrop-blur-sm sm:text-xs"
+                  variants={fadeUp(0.1, 10)}
+                  initial="hidden"
+                  animate="show"
+                >
+                  <span className="blink-dot size-1.5 rounded-full bg-brand-orange" />
+                  Available for healthcare software projects · Q3 2026
+                </motion.span>
+
+                <motion.h2
+                  className="mt-5 font-display text-4xl leading-[0.92] font-extrabold tracking-[-0.04em] text-background sm:text-6xl"
+                  variants={fadeUp(0.2, 22)}
+                  initial="hidden"
+                  animate="show"
+                >
+                  Mostafa Samir
+                  <span className="mt-1 block text-brand-orange">
+                    Healthcare Full-Stack Engineer.
+                  </span>
+                </motion.h2>
+
+                <motion.p
+                  className="mt-5 max-w-lg text-sm leading-relaxed text-background/70 sm:text-base"
+                  variants={fadeUp(0.32)}
+                  initial="hidden"
+                  animate="show"
+                >
+                  Building secure, HIPAA-aligned healthcare platforms — EHR systems, HL7/FHIR
+                  interoperability, telehealth, and remote patient monitoring — with .NET 8
+                  microservices and modern frontend frameworks.
+                </motion.p>
+
+                <motion.div
+                  className="mt-7 flex flex-wrap items-center gap-3"
+                  variants={fadeUp(0.42)}
+                  initial="hidden"
+                  animate="show"
+                >
+                  <Magnetic strength={10}>
+                    <a
+                      href="#work"
+                      className="press sheen inline-flex items-center rounded-full bg-background px-5 py-2.5 text-sm font-semibold text-foreground"
+                    >
+                      View projects
+                    </a>
+                  </Magnetic>
+                  <Magnetic strength={10}>
+                    <a
+                      href="#contact"
+                      className="press inline-flex items-center rounded-full bg-background/10 px-5 py-2.5 text-sm font-semibold text-background backdrop-blur-sm transition-colors hover:bg-background/20"
+                    >
+                      Get in touch
+                    </a>
+                  </Magnetic>
+                </motion.div>
+
+                <motion.dl
+                  className="mt-9 grid grid-cols-2 gap-6 sm:grid-cols-4"
+                  variants={fadeUp(0.55)}
+                  initial="hidden"
+                  animate="show"
+                >
+                  {stats.map((stat) => (
+                    <div key={stat.label}>
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd>
+                        <CountUp
+                          value={stat.value}
+                          className="block font-display text-2xl font-extrabold tracking-[-0.03em] text-background sm:text-3xl"
+                        />
+                        <span className="mt-1 block text-[0.62rem] font-semibold tracking-[0.12em] text-background/55 uppercase">
+                          {stat.label}
+                        </span>
+                      </dd>
+                    </div>
+                  ))}
+                </motion.dl>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-sm">
+                <Parallax strength={-14}>
+                  <div className="float-slow overflow-hidden rounded-[2rem] bg-brand-sky/30 shadow-[var(--shadow-image)] transform-gpu">
+                    <img
+                      src={portrait}
+                      srcSet={`${portraitTiny} 420w, ${portraitSm} 640w, ${portraitMd} 720w, ${portrait} 1024w`}
+                      sizes="(max-width: 640px) 90vw, 420px"
+                      alt="Illustrated portrait of Mostafa Samir, a healthcare full-stack engineer"
+                      width={1024}
+                      height={1024}
+                      decoding="async"
+                      fetchPriority="high"
+                      className="hero-media size-full transform-gpu object-cover object-top"
+                    />
+                  </div>
+                </Parallax>
+                <p className="mt-4 text-center text-xs font-semibold tracking-wide text-background/80 sm:text-sm">
+                  EHR · FHIR · Telehealth · Cloud
+                </p>
+              </div>
             </div>
           </div>
         </div>
