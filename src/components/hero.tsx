@@ -3,9 +3,9 @@ import portraitTiny from "@/assets/portrait-dev-420.webp";
 import portraitSm from "@/assets/portrait-dev-640.webp";
 import portraitMd from "@/assets/portrait-dev-720.webp";
 import portrait from "@/assets/portrait-dev.webp";
-import { AnimatedChars, Magnetic } from "@/components/motion-text";
+import { AnimatedChars, CountUp, Magnetic } from "@/components/motion-text";
 import { Parallax } from "@/components/reveal";
-import { tools } from "@/data/projects";
+import { stats, tools } from "@/data/projects";
 
 const uniqueTools = Array.from(new Set(tools));
 
