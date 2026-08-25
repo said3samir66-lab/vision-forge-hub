@@ -59,7 +59,7 @@ export function KhidaSection() {
 
       {/* Top label area */}
       <div className="relative pt-[72px] pb-6 text-center">
-        <p className="font-body text-[clamp(9px,1.1vw,11px)] font-light tracking-[0.42em] text-ink/55 uppercase">
+        <p className="font-oswald text-[clamp(9px,1.1vw,11px)] font-light tracking-[0.42em] text-ink/55 uppercase">
           JOIN THE FLAVOR REVOLUTION!
         </p>
         <h2 className="mt-2 font-display text-[clamp(24px,4.2vw,56px)] leading-[1.05] tracking-[0.04em] text-ink">
@@ -113,7 +113,7 @@ export function KhidaSection() {
               <br />
               Discount
             </p>
-            <p className="mb-3 font-body text-[9px] leading-[1.5] font-light tracking-[0.06em] text-ink">
+            <p className="mb-3 font-oswald text-[9px] leading-[1.5] font-light tracking-[0.06em] text-ink">
               Download The App Now
             </p>
 
@@ -136,7 +136,7 @@ export function KhidaSection() {
                 <svg width="10" height="12" viewBox="0 0 10 12" fill="none" aria-hidden="true">
                   <path d="M2 1 L9 6 L2 11 Z" fill="var(--cream)" />
                 </svg>
-                <span className="font-body text-[7px] leading-[1.4] font-light tracking-[0.04em] text-cream">
+                <span className="font-oswald text-[7px] leading-[1.4] font-light tracking-[0.04em] text-cream">
                   GET IT ON
                   <br />
                   <strong className="font-semibold">Google Play</strong>
@@ -146,7 +146,7 @@ export function KhidaSection() {
                 <svg viewBox="0 0 24 24" width="10" height="12" fill="var(--cream)" aria-hidden="true">
                   <path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.8.8-3.5.8s-1.9-.8-3.1-.8c-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.4-3.8ZM14 5.4c.6-.8 1.1-1.9 1-3-1 0-2.2.6-2.9 1.5-.6.7-1.2 1.9-1 3 1.1 0 2.3-.6 2.9-1.5Z" />
                 </svg>
-                <span className="font-body text-[7px] leading-[1.4] font-light tracking-[0.04em] text-cream">
+                <span className="font-oswald text-[7px] leading-[1.4] font-light tracking-[0.04em] text-cream">
                   Download on the
                   <br />
                   <strong className="font-semibold">App Store</strong>

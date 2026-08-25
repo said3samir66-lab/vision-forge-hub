@@ -23,6 +23,7 @@
   --font-heavy: "Archivo Black", sans-serif;
   --font-slab: "Baloo 2", system-ui, sans-serif;
   --font-body: "Barlow Condensed", sans-serif;
+  --font-oswald: "Oswald", "Barlow Condensed", sans-serif;
   --color-cream: var(--cream);
   --color-ink: var(--ink);
   --color-signal: var(--signal);
