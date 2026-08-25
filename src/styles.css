@@ -23,6 +23,7 @@
   --font-heavy: "Archivo Black", sans-serif;
   --font-slab: "Baloo 2", system-ui, sans-serif;
   --font-body: "Barlow Condensed", sans-serif;
+  --font-oswald: "Oswald", "Barlow Condensed", sans-serif;
   --color-cream: var(--cream);
   --color-ink: var(--ink);
   --color-signal: var(--signal);
@@ -424,5 +425,151 @@ html[data-theme-reveal="on"]::view-transition-new(root) {
 @media (prefers-reduced-motion: reduce) {
   html[data-theme-reveal="on"]::view-transition-new(root) {
     animation: none;
+  }
+}
+
+/* ---------------- Khida / Flavor CTA section ---------------- */
+
+@keyframes khida-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(6px, -10px, 0);
+  }
+}
+
+@keyframes khida-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes khida-arrow {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes khida-dash {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.khida-float {
+  animation: khida-float 7s ease-in-out infinite;
+}
+
+.khida-float-slow {
+  animation-duration: 11s;
+  animation-direction: alternate-reverse;
+}
+
+.khida-box {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+  opacity: 0;
+  transform: translate3d(0, 48px, 0) scale(0.97);
+  transition:
+    opacity 0.7s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.khida-box.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.khida-line {
+  opacity: 0;
+  transform: translate3d(-28px, 0, 0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.khida-box.is-in .khida-line {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.khida-straw {
+  transform: rotate(8deg) translate3d(0, -24px, 0);
+  opacity: 0;
+  transition:
+    opacity 0.5s ease 0.35s,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+.khida-straw-2 {
+  background-color: transparent;
+  transition-delay: 0.45s;
+}
+
+.khida-box.is-in .khida-straw {
+  opacity: 1;
+  transform: rotate(8deg) translate3d(0, 0, 0);
+}
+
+.khida-card {
+  opacity: 0;
+  transform: translate3d(0, -18px, 0) rotate(3deg);
+  transition:
+    opacity 0.6s ease 0.3s,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.khida-box.is-in .khida-card {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0deg);
+}
+
+.khida-dashed {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 0.6s ease 0.6s,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s,
+    background-color 0.25s ease;
+}
+
+.khida-box.is-in .khida-dashed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.khida-spin {
+  animation: khida-spin 5s linear infinite;
+}
+
+.khida-arrow {
+  animation: khida-arrow 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .khida-float,
+  .khida-spin,
+  .khida-arrow {
+    animation: none;
+  }
+  .khida-box,
+  .khida-line,
+  .khida-straw,
+  .khida-card,
+  .khida-dashed {
+    opacity: 1;
+    transition: none;
+    transform: none;
+  }
+  .khida-straw {
+    transform: rotate(8deg);
   }
 }

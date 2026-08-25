@@ -6,7 +6,7 @@ import { CraveMarquee } from "@/components/chompo/CraveMarquee";
 import { NewMeal } from "@/components/chompo/NewMeal";
 import { TypeSpiral } from "@/components/chompo/TypeSpiral";
 import { Reviews } from "@/components/chompo/Reviews";
-import { FlavorCta } from "@/components/chompo/FlavorCta";
+import { KhidaSection } from "@/components/chompo/KhidaSection";
 import { SiteFooter } from "@/components/chompo/SiteFooter";
 
 const TITLE = "CHOMPO | Fast Food & Delivery That Hits Different";
@@ -37,7 +37,7 @@ function Index() {
       <NewMeal />
       <TypeSpiral />
       <Reviews />
-      <FlavorCta />
+      <KhidaSection />
       <SiteFooter />
     </main>
   );
